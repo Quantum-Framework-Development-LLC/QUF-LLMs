@@ -1,0 +1,18 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo "Running Unit Tests"
+  displayName: 'Unit Tests'
+
+- script: python ./src/test_model.py
+  displayName: 'Run Unit Tests'
+
+- script: echo "Running Integration Tests"
+  displayName: 'Integration Tests'
+
+- script: python ./src/integration_test.py
+  displayName: 'Run Integration Tests'
